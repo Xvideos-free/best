@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>freeteens</title>
+  <meta name="generator" content="WYSIWYG Web Builder 18 - https://www.wysiwygwebbuilder.com">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #000;
+      color: #fff;
+    }
+
+    #container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    #takeTest {
+      color: yellow;
+      font-size: 24px;
+      margin: 20px 0;
+    }
+
+    #instructions {
+      color: red;
+      font-size: 20px;
+      margin: 10px 0;
+      display: none;
+    }
+
+    #getOffer {
+      color: white;
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      cursor: pointer;
+    }
+
+    #startButton {
+      background-color: yellow;
+      color: black;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    #startButton:hover {
+      background-color: orange;
+    }
+
+    /* Увеличенный текст для мобильной версии */
+    @media (max-width: 600px) {
+      #takeTest {
+        font-size: 24px;
+      }
+
+      #instructions {
+        font-size: 16px;
+      }
+
+      #getOffer {
+        font-size: 20px;
+      }
+
+      #startButton {
+        font-size: 16px;
+      }
+    }
+  </style>
+  <script>
+    const translations = {
+      en: { takeTest: "TAKE A SHORT TEST", instructions: "THE VIDEO WILL RUN AFTER THE TEST.", getOffer: "The video will start automatically on the “Thank You!” page.", startButton: "START TEST" },
+      bn: { takeTest: "একটি সংক্ষিপ্ত পরীক্ষা দিন", instructions: "পরীক্ষার পরে ভিডিও চলবে।", getOffer: "ভিডিওটি “ধন্যবাদ” পৃষ্ঠায় স্বয়ংক্রিয়ভাবে শুরু হবে।", startButton: "পরীক্ষা শুরু করুন" },
+      bg: { takeTest: "НАПРАВЕТЕ КРАТЪК ТЕСТ", instructions: "ВИДЕОТО ЩЕ ЗАПОЧНЕ СЛЕД ТЕСТА.", getOffer: "Видеото ще стартира автоматично на страницата „Благодаря!“. ", startButton: "ЗАПОЧНЕТЕ ТЕСТА" },
+      zh: { takeTest: "进行简短测试", instructions: "测试结束后将播放视频。", getOffer: "视频将在“感谢”页面自动播放。", startButton: "开始测试" },
+      nl: { takeTest: "DOE EEN KORTE TEST", instructions: "DE VIDEO START NA DE TEST.", getOffer: "De video start automatisch op de 'Bedankt!' pagina.", startButton: "BEGIN TEST" },
+      fil: { takeTest: "KUMUHA NG MAIKLING PAGSUSULIT", instructions: "MAGSISIMULA ANG VIDEO PAGKATAPOS NG PAGSUSULIT.", getOffer: "Awtomatikong magsisimula ang video sa pahina ng “Salamat!”.", startButton: "SIMULAN ANG PAGSUSULIT" },
+      fi: { takeTest: "SUORITA LYHYT TESTI", instructions: "VIDEO ALKAA TESTIN JÄLKEEN.", getOffer: "Video alkaa automaattisesti “Kiitos!” -sivulla.", startButton: "ALOITA TESTI" },
+      de: { takeTest: "MACHEN SIE EINEN KURZEN TEST", instructions: "DAS VIDEO STARTET NACH DEM TEST.", getOffer: "Das Video startet automatisch auf der „Danke!“-Seite.", startButton: "TEST STARTEN" },
+      he: { takeTest: "עברו מבחן קצר", instructions: "הווידאו יתחיל לאחר המבחן.", getOffer: "הווידאו יתחיל אוטומטית בדף \"תודה!\".", startButton: "התחל מבחן" },
+      hi: { takeTest: "एक छोटा परीक्षण लें", instructions: "परीक्षा के बाद वीडियो चलाया जाएगा।", getOffer: "वीडियो “धन्यवाद!” पृष्ठ पर स्वचालित रूप से शुरू हो जाएगा।", startButton: "परीक्षा शुरू करें" },
+      hu: { takeTest: "TÖLTSE KI A RÖVID TESZTET", instructions: "A VIDEÓ A TESZT UTÁN INDUL EL.", getOffer: "A videó automatikusan elindul a „Köszönöm!” oldalon.", startButton: "TESZT INDÍTÁSA" },
+      id: { takeTest: "IKUTI TES SINGKAT", instructions: "VIDEO AKAN DIPUTAR SETELAH TES.", getOffer: "Video akan mulai secara otomatis di halaman “Terima Kasih!”.", startButton: "MULAI TES" },
+      it: { takeTest: "FAI UN BREVE TEST", instructions: "IL VIDEO PARTIRÀ DOPO IL TEST.", getOffer: "Il video si avvierà automaticamente nella pagina “Grazie!”.", startButton: "INIZIA IL TEST" },
+      ja: { takeTest: "短いテストを受ける", instructions: "テスト終了後にビデオが再生されます。", getOffer: "ビデオは「ありがとう」ページで自動的に開始されます。", startButton: "テストを開始" },
+      kk: { takeTest: "ҚЫСҚА ТЕСТ ӨТІҢІЗ", instructions: "ВИДЕО ТЕСТТЕН КЕЙІН ЖҮРГІЗІЛЕДІ.", getOffer: "Бейне «Рақмет!» бетінде автоматты түрде басталады.", startButton: "ТЕСТТІ БАСТАУ" },
+      ko: { takeTest: "짧은 테스트를 진행하세요", instructions: "테스트 후에 비디오가 실행됩니다.", getOffer: "비디오는 “감사합니다!” 페이지에서 자동으로 시작됩니다.", startButton: "테스트 시작" },
+      ms: { takeTest: "AMBIL UJIAN RINGKAS", instructions: "VIDEO AKAN DIMAINKAN SELEPAS UJIAN.", getOffer: "Video akan bermula secara automatik di halaman “Terima Kasih!”.", startButton: "MULAKAN UJIAN" },
+      // Продолжение с другими языками.
+    };
+
+    function setLanguage() {
+      const userLang = navigator.language.slice(0, 2);
+      const lang = translations[userLang] ? userLang : 'en';
+
+      document.getElementById('takeTest').textContent = translations[lang].takeTest;
+      document.getElementById('instructions').textContent = translations[lang].instructions;
+      document.getElementById('getOffer').textContent = translations[lang].getOffer;
+      document.getElementById('startButton').textContent = translations[lang].startButton;
+    }
+
+    window.onload = function () {
+      setLanguage();
+    };
+  </script>
+</head>
+<body>
+  <div id="container">
+    <p id="takeTest">TAKE A SHORT TEST</p>
+    <p id="instructions">THE VIDEO WILL RUN AFTER THE TEST.</p>
+    <p id="getOffer">The video will start automatically on the “Thank You!” page.</p>
+    <button id="startButton">START TEST</button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>freeteens</title>
+  <meta name="generator" content="WYSIWYG Web Builder 18 - https://www.wysiwygwebbuilder.com">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #000;
+      color: #fff;
+    }
+
+    #container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    #takeTest {
+      color: yellow;
+      font-size: 24px;
+      margin: 20px 0;
+    }
+
+    #instructions {
+      color: red;
+      font-size: 20px;
+      margin: 10px 0;
+      display: none;
+    }
+
+    #vpnWarning {
+      color: #f00;
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    #getOffer {
+      color: white;
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      cursor: pointer;
+    }
+
+    #startButton {
+      background-color: yellow;
+      color: black;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    #startButton:hover {
+      background-color: orange;
+    }
+
+    @media (max-width: 600px) {
+      #takeTest {
+        font-size: 24px;
+      }
+
+      #instructions {
+        font-size: 16px;
+      }
+
+      #getOffer {
+        font-size: 20px;
+      }
+
+      #startButton {
+        font-size: 16px;
+      }
+    }
+  </style>
+<script>
+  const translations = {
+    en: {
+      takeTest: "TAKE A SHORT TEST",
+      instructions: "FULL VIDEO WILL LAUNCH AFTER THE TEST - NO REGISTRATION, JUST ANSWER 6 SIMPLE QUESTIONS.",
+      vpnWarning: "WILL NOT START WITH VPN",
+      initialOffer: "The video will start automatically on the \u201CThank You!\u201D page.",
+      getOffer: "DON'T RUSH, TAKE A LOOK!",
+      initialButton: "START TEST",
+      updatedButton: "BONUS",
+      desktopBonusLink: "https://www.meendo.com/video/6897020_1407455?partner=24370",
+      mobileBonusLink: "https://m.meendo.com/video/6897020_1407455?partner=24370"
+    },
+    es: {
+      takeTest: "REALIZA UNA PRUEBA RÁPIDA",
+      instructions: "EL VIDEO COMPLETO SE LANZARÁ DESPUÉS DE LA PRUEBA - SIN REGISTRO, SOLO RESPONDE 6 PREGUNTAS SIMPLES.",
+      vpnWarning: "NO FUNCIONARÁ CON VPN",
+      initialOffer: "El video comenzará automáticamente en la página de \u201CGracias\u201D.",
+      getOffer: "¡NO TE APRESURES, MIRA!",
+      initialButton: "INICIAR PRUEBA",
+      updatedButton: "BONO",
+      desktopBonusLink: "https://www.meendo.com/video/6897020_1407455?partner=24370",
+      mobileBonusLink: "https://m.meendo.com/video/6897020_1407455?partner=24370"
+    },
+    fr: {
+      takeTest: "FAITES UN COURT TEST",
+      instructions: "LA VIDÉO COMPLÈTE DÉMARRERA APRÈS LE TEST - AUCUNE INSCRIPTION, RÉPONDEZ SIMPLEMENT À 6 QUESTIONS SIMPLES.",
+      vpnWarning: "NE FONCTIONNERA PAS AVEC VPN",
+      initialOffer: "La vidéo commencera automatiquement sur la page \u201CMerci !\u201D.",
+      getOffer: "NE VOUS PRÉCIPITEZ PAS, REGARDEZ !",
+      initialButton: "COMMENCER LE TEST",
+      updatedButton: "BONUS",
+      desktopBonusLink: "https://www.meendo.com/video/6897020_1407455?partner=24370",
+      mobileBonusLink: "https://m.meendo.com/video/6897020_1407455?partner=24370"
+    },
+    de: {
+      takeTest: "MACHEN SIE EINEN KURZEN TEST",
+      instructions: "DAS KOMPLETTE VIDEO WIRD NACH DEM TEST GESTARTET - KEINE REGISTRIERUNG, BEANTWORTEN SIE EINFACH 6 EINFACHE FRAGEN.",
+      vpnWarning: "WIRD NICHT MIT VPN STARTEN",
+      initialOffer: "Das Video startet automatisch auf der Seite \u201EDanke!\u201C.",
+      getOffer: "KEINE EILE, SCHAUEN SIE SICH UM!",
+      initialButton: "TEST STARTEN",
+      updatedButton: "BONUS",
+      desktopBonusLink: "https://www.meendo.com/video/6897020_1407455?partner=24370",
+      mobileBonusLink: "https://m.meendo.com/video/6897020_1407455?partner=24370"
+    },
+    zh: {
+      takeTest: "进行一个短测",
+      instructions: "完整视频将在测试后启动 - 无需注册，只需回答6个简单问题。",
+      vpnWarning: "无法在VPN情况下启动",
+      initialOffer: "视频将在“感谢”页面自动启动。",
+      getOffer: "别着急，看看！",
+      initialButton: "开始测试",
+      updatedButton: "奖金",
+      desktopBonusLink: "https://www.meendo.com/video/6897020_1407455?partner=24370",
+      mobileBonusLink: "https://m.meendo.com/video/6897020_1407455?partner=24370"
+    },
+    ja: {
+      takeTest: "短いテストを受ける",
+      instructions: "完全なビデオはテスト後に開始されます - 登録不要、6つの簡単な質問に答えるだけ。",
+      vpnWarning: "VPNでは起動しません",
+      initialOffer: "ビデオは「ありがとう」ページで自動的に開始されます。",
+      getOffer: "急がないで、見てください！",
+      initialButton: "テストを開始",
+      updatedButton: "ボーナス",
+      desktopBonusLink: "https://www.meendo.com/video/6897020_1407455?partner=24370",
+      mobileBonusLink: "https://m.meendo.com/video/6897020_1407455?partner=24370"
+    },
+    ar: {
+      takeTest: "قم بإجراء اختبار قصير",
+      instructions: "سيتم تشغيل الفيديو الكامل بعد الاختبار - لا يلزم التسجيل، فقط أجب على 6 أسئلة بسيطة.",
+      vpnWarning: "لن يبدأ مع VPN",
+      initialOffer: "سيبدأ الفيديو تلقائيًا في صفحة \"شكرًا لك!\".",
+      getOffer: "لا تتعجل، انظر!",
+      initialButton: "ابدأ الاختبار",
+      updatedButton: "مكافأة",
+      desktopBonusLink: "https://www.meendo.com/video/6897020_1407455?partner=24370",
+      mobileBonusLink: "https://m.meendo.com/video/6897020_1407455?partner=24370"
+    }
+  };
+
+  let userLang = navigator.language.slice(0, 2);
+  if (!translations[userLang]) userLang = 'en';
+
+  function setLanguage() {
+    const t = translations[userLang];
+    document.getElementById('takeTest').textContent = t.takeTest;
+    document.getElementById('instructions').textContent = t.instructions;
+    document.getElementById('vpnWarning').textContent = t.vpnWarning;
+    document.getElementById('getOffer').textContent = t.initialOffer;
+    document.getElementById('startButton').textContent = t.initialButton;
+  }
+
+  function showInstructions() {
+    document.getElementById('instructions').style.display = 'block';
+  }
+
+  function redirectToDeviceLink() {
+    const androidLink = "https://tichairg.com/link?z=6962446&var={SOURCE_ID}&ymid={CLICK_ID}";
+    const iosLink = "https://tichairg.com/link?z=5753412&var={SOURCE_ID}&ymid={CLICK_ID}";
+    const desktopLink = "https://tichairg.com/link?z=6488869&var={SOURCE_ID}&ymid={CLICK_ID}";
+
+    if (/Android/i.test(navigator.userAgent)) {
+      window.open(androidLink, "_blank");
+    } else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      window.open(iosLink, "_blank");
+    } else {
+      window.open(desktopLink, "_blank");
+    }
+
+    document.getElementById('startButton').textContent = translations[userLang].updatedButton;
+    document.getElementById('getOffer').textContent = translations[userLang].getOffer;
+    document.getElementById('startButton').onclick = redirectToBonusLink;
+  }
+
+  function redirectToBonusLink() {
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const bonusLink = isMobile
+      ? translations[userLang].mobileBonusLink
+      : translations[userLang].desktopBonusLink;
+    window.open(bonusLink, "_blank");
+  }
+
+  window.onload = function () {
+    setLanguage();
+    document.getElementById('Image2').onclick = redirectToDeviceLink;
+    document.getElementById('Image3').onclick = showInstructions;
+    document.getElementById('startButton').onclick = redirectToDeviceLink;
+  };
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div id="wb_Text1">
+      <p id="takeTest">TAKE A SHORT TEST</p>
+    </div>
+    <div>
+      <img src="images/test2.png" id="Image2" alt="Test Image">
+    </div>
+    <p id="vpnWarning">WILL NOT START WITH VPN</p>
+    <div>
+      <img src="images/xvideo.png" id="Image3" alt="Video Image">
+    </div>
+    <div>
+      <p id="instructions">FULL VIDEO WILL LAUNCH AFTER THE TEST - NO REGISTRATION, JUST ANSWER 6 SIMPLE QUESTIONS.</p>
+      <p id="getOffer">The video will start automatically on the “Thank You!” page.</p>
+    </div>
+    <button id="startButton">START TEST</button>
+  </div>
+</body>
+</html>
