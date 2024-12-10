@@ -33,12 +33,6 @@
       display: none;
     }
 
-    #vpnWarning {
-      color: #f00;
-      font-size: 18px;
-      margin: 10px 0;
-    }
-
     #getOffer {
       color: white;
       font-size: 18px;
@@ -90,7 +84,6 @@
     en: {
       takeTest: "TAKE A SHORT TEST",
       instructions: "FULL VIDEO WILL LAUNCH AFTER THE TEST - NO REGISTRATION, JUST ANSWER 6 SIMPLE QUESTIONS.",
-      vpnWarning: "WILL NOT START WITH VPN",
       initialOffer: "The video will start automatically on the \u201CThank You!\u201D page.",
       getOffer: "DON'T RUSH, TAKE A LOOK!",
       initialButton: "START TEST",
@@ -101,7 +94,6 @@
     es: {
       takeTest: "REALIZA UNA PRUEBA RÁPIDA",
       instructions: "EL VIDEO COMPLETO SE LANZARÁ DESPUÉS DE LA PRUEBA - SIN REGISTRO, SOLO RESPONDE 6 PREGUNTAS SIMPLES.",
-      vpnWarning: "NO FUNCIONARÁ CON VPN",
       initialOffer: "El video comenzará automáticamente en la página de \u201CGracias\u201D.",
       getOffer: "¡NO TE APRESURES, MIRA!",
       initialButton: "INICIAR PRUEBA",
@@ -112,7 +104,6 @@
     fr: {
       takeTest: "FAITES UN COURT TEST",
       instructions: "LA VIDÉO COMPLÈTE DÉMARRERA APRÈS LE TEST - AUCUNE INSCRIPTION, RÉPONDEZ SIMPLEMENT À 6 QUESTIONS SIMPLES.",
-      vpnWarning: "NE FONCTIONNERA PAS AVEC VPN",
       initialOffer: "La vidéo commencera automatiquement sur la page \u201CMerci !\u201D.",
       getOffer: "NE VOUS PRÉCIPITEZ PAS, REGARDEZ !",
       initialButton: "COMMENCER LE TEST",
@@ -123,7 +114,6 @@
     de: {
       takeTest: "MACHEN SIE EINEN KURZEN TEST",
       instructions: "DAS KOMPLETTE VIDEO WIRD NACH DEM TEST GESTARTET - KEINE REGISTRIERUNG, BEANTWORTEN SIE EINFACH 6 EINFACHE FRAGEN.",
-      vpnWarning: "WIRD NICHT MIT VPN STARTEN",
       initialOffer: "Das Video startet automatisch auf der Seite \u201EDanke!\u201C.",
       getOffer: "KEINE EILE, SCHAUEN SIE SICH UM!",
       initialButton: "TEST STARTEN",
@@ -134,7 +124,6 @@
     zh: {
       takeTest: "进行一个短测",
       instructions: "完整视频将在测试后启动 - 无需注册，只需回答6个简单问题。",
-      vpnWarning: "无法在VPN情况下启动",
       initialOffer: "视频将在“感谢”页面自动启动。",
       getOffer: "别着急，看看！",
       initialButton: "开始测试",
@@ -145,7 +134,6 @@
     ja: {
       takeTest: "短いテストを受ける",
       instructions: "完全なビデオはテスト後に開始されます - 登録不要、6つの簡単な質問に答えるだけ。",
-      vpnWarning: "VPNでは起動しません",
       initialOffer: "ビデオは「ありがとう」ページで自動的に開始されます。",
       getOffer: "急がないで、見てください！",
       initialButton: "テストを開始",
@@ -156,9 +144,8 @@
     ar: {
       takeTest: "قم بإجراء اختبار قصير",
       instructions: "سيتم تشغيل الفيديو الكامل بعد الاختبار - لا يلزم التسجيل، فقط أجب على 6 أسئلة بسيطة.",
-      vpnWarning: "لن يبدأ مع VPN",
       initialOffer: "سيبدأ الفيديو تلقائيًا في صفحة \"شكرًا لك!\".",
-      getOffer: "لا تتعجل، انظر!",
+      getOffer: "لا تتعجل، انظر! ",
       initialButton: "ابدأ الاختبار",
       updatedButton: "مكافأة",
       desktopBonusLink: "https://www.meendo.com/video/6897020_1407455?partner=24370",
@@ -173,7 +160,6 @@
     const t = translations[userLang];
     document.getElementById('takeTest').textContent = t.takeTest;
     document.getElementById('instructions').textContent = t.instructions;
-    document.getElementById('vpnWarning').textContent = t.vpnWarning;
     document.getElementById('getOffer').textContent = t.initialOffer;
     document.getElementById('startButton').textContent = t.initialButton;
   }
@@ -225,7 +211,6 @@
     <div>
       <img src="images/test2.png" id="Image2" alt="Test Image">
     </div>
-    <p id="vpnWarning">WILL NOT START WITH VPN</p>
     <div>
       <img src="images/xvideo.png" id="Image3" alt="Video Image">
     </div>
